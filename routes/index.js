@@ -17,8 +17,9 @@ const messages = [
 index.get('/', (req, res) => res.render('index', { messages: messages }))
 index.get('/new', (req, res) => res.render('form'))
 index.post('/new', (req, res) => {
-    console.log(req.body)
-    res.render('form')
+    let form = req.body
+    messages.push({ text: form.text, user: form.user, added: new Date() })
+    res.redirect('/')
 })
 
 module.exports = index
