@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+    <body>
+        <%- include('header', {links: links}) %>
+        <section class="message">
+            <h3><%= message.user %> says</h3>
+            <h2><%= message.text %></h2>
+            <p><%= new Intl.DateTimeFormat('en-US', { dateStyle: 'short', timeStyle: 'short' }).format(message.added) %> </p>
+        </section>
+
+        <a href="/">Back to board</a>
+    </body>
+</html>

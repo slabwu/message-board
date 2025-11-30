@@ -26,5 +26,8 @@ index.post('/new', (req, res) => {
     messages.push({ text: form.text, user: form.user, added: new Date() })
     res.redirect('/')
 })
+index.get('/message/:messageId', (req, res) => {
+    res.render('message', { links: links, message: messages[req.params.messageId]})
+})
 
 module.exports = index

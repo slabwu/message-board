@@ -5,12 +5,12 @@
     <body>
         <%- include('header', {links: links}) %>
         <section class="messageBoard">
-            <% messages.forEach(message => { %>
+            <% messages.forEach((message, index) => { %>
                 <div>
-                    <%= message.user %> @
-                    <%= new Intl.DateTimeFormat('en-US', { dateStyle: 'short', timeStyle: 'short' }).format(message.added) %> 
+                    <%= message.user %>: <%= message.text %>
                     <br />
-                    <%= message.text %>
+                    <%= new Intl.DateTimeFormat('en-US', { dateStyle: 'short', timeStyle: 'short' }).format(message.added) %> 
+                    <a href="/message/<%= index %>">details</a>
                 </div>
                 <br />
             <% }) %>
