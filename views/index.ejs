@@ -6,7 +6,8 @@
         <section class="messageBoard">
             <% messages.forEach(message => { %>
                 <div>
-                    <%= message.user %>
+                    <%= message.user %> @
+                    <%= new Intl.DateTimeFormat('en-US', { dateStyle: 'short', timeStyle: 'short' }).format(message.added) %> 
                     <br />
                     <%= message.text %>
                 </div>
