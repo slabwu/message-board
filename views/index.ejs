@@ -3,6 +3,15 @@
         <link rel="stylesheet" href="/styles.css">
     </head>
     <body>
-        <%= test %>
+        <section class="messageBoard">
+            <% messages.forEach(message => { %>
+                <div>
+                    User: <%= message.user %> <%= message.date %> 
+                    <br />
+                    <%= message.text %>
+                </div>
+                <br />
+            <% }) %>
+        </section>
     </body>
 </html>
