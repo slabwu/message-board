@@ -15,5 +15,10 @@ const messages = [
 ]
 
 index.get('/', (req, res) => res.render('index', { messages: messages }))
+index.get('/new', (req, res) => res.render('form'))
+index.post('/new', (req, res) => {
+    console.log(req.body)
+    res.render('form')
+})
 
 module.exports = index
