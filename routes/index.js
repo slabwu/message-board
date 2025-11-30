@@ -12,6 +12,36 @@ const messages = [
         user: 'Amando',
         added: new Date()
     },
+        {
+        text: 'Hi there!',
+        user: 'Amando',
+        added: new Date()
+    },
+        {
+        text: 'Hi there',
+        user: 'Amando',
+        added: new Date()
+    },
+        {
+        text: 'Hi there!',
+        user: 'Amando',
+        added: new Date()
+    },
+        {
+        text: 'Hi there!',
+        user: 'Amando',
+        added: new Date()
+    },
+        {
+        text: 'Hi there!',
+        user: 'Amando',
+        added: new Date()
+    },
+        {
+        text: 'Hi there!',
+        user: 'Amando',
+        added: new Date()
+    },
     {
         text: 'Hello World!',
         user: 'Charles',

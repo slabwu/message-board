@@ -1,6 +1,6 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: LightSkyBlue;
+    background-color: white;
 }
 
 .messageBoard {
@@ -8,6 +8,13 @@ body {
     align-items: flex-start;
     flex-direction: column;
     gap: 10px;
+    background-color: LightSkyBlue;
+    height: 700px;
+    width: 500px;
+    padding: 20px 10px 20px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    border-radius: 20px;
 }
 
 .message {
