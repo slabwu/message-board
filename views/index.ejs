@@ -6,13 +6,19 @@
         <%- include('header', {links: links}) %>
         <section class="messageBoard">
             <% messages.forEach((message, index) => { %>
-                <div>
-                    <%= message.user %>: <%= message.text %>
-                    <br />
-                    <%= new Intl.DateTimeFormat('en-US', { dateStyle: 'short', timeStyle: 'short' }).format(message.added) %> 
-                    <a href="/message/<%= index %>">details</a>
+                <div class="message"">
+                    <div class="profile"><%= message.user[0] %></div>
+                    <div>
+                        <span class="user"><%= message.user %></span>
+                        <div class="body">
+                            <%= message.text %>
+                        </div>
+                        <div class="details">
+                            <%= new Intl.DateTimeFormat('en-US', { timeStyle: 'short' }).format(message.added) %> 
+                            <a href="/message/<%= index %>">ⓘ</a>
+                        </div>
+                    </div>
                 </div>
-                <br />
             <% }) %>
         </section>
     </body>

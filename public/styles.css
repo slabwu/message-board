@@ -1,3 +1,59 @@
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: LightSkyBlue;
+}
+
+.messageBoard {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    margin: 0 10px 0;
+    display: flex;
+    align-items: flex-end;
+}
+
+.message .profile {
+    background-color: rgb(90, 49, 255);
+    color: white;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    font-size: 20px;
+    margin: 0 10px 23px 0;
+}
+
+.message .user {
+    color: black;
+    font-size: 20px;
+}
+
+.message .body {
+    font-size: 20px;
+    padding: 16px;
+    border-radius: 20px 20px 20px 2px;
+    background-color: white;
+    width: fit-content;
+    margin-top: 6px;
+}
+
+.message .details {
+    font-size: 14px;
+    margin-top: 2px;
+    color: RoyalBlue;
+}
+
+.message .details a {
+    font-weight: bold;
+    color: RoyalBlue;
+}
+
+a {
+    text-decoration: none;
 }
