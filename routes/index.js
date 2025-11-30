@@ -3,7 +3,7 @@ const index = Router()
 
 const links = [
     { href: '/', text: 'Message Board' },
-    { href: 'new', text: 'Send Message' }
+    { href: '/new', text: 'Send Message' }
 ]
 
 const messages = [
