@@ -1,6 +1,11 @@
 const { Router } = require('express')
 const index = Router()
 
+const links = [
+    { href: '/', text: 'Message Board' },
+    { href: 'new', text: 'Send Message' }
+]
+
 const messages = [
     {
         text: 'Hi there!',
@@ -14,8 +19,8 @@ const messages = [
     }
 ]
 
-index.get('/', (req, res) => res.render('index', { messages: messages }))
-index.get('/new', (req, res) => res.render('form'))
+index.get('/', (req, res) => res.render('index', { links: links, messages: messages }))
+index.get('/new', (req, res) => res.render('form', { links: links }))
 index.post('/new', (req, res) => {
     let form = req.body
     messages.push({ text: form.text, user: form.user, added: new Date() })
