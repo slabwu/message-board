@@ -8,7 +8,7 @@ const links = [
 async function getIndex(req, res) {
     let messages = await db.getMessages()
     console.log(messages)
-    res.render('index', { links: links, messages: messages })
+    res.render('index', { links: links, messages: messages, username: req.session.username || '' })
 }
 
 async function getNew(req, res) {
@@ -16,8 +16,7 @@ async function getNew(req, res) {
 }
 
 async function postNew(req, res) {
-    let form = req.body
-    await db.postMessage(form.text, form.username)
+    await db.postMessage(req.body.text, req.session.username || 'Anonymous')
     res.redirect('/')
 }
 
@@ -25,9 +24,15 @@ async function getMessageId(req, res) {
     res.render('message', { links: links, message: messages[req.params.messageId]})
 }
 
+async function postUser(req, res) {
+    req.session.username = req.body.username
+    res.redirect('/')
+}
+
 module.exports = {
     getIndex,
     getNew,
     postNew,
-    getMessageId
+    getMessageId,
+    postUser
 }

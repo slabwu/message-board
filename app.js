@@ -1,10 +1,17 @@
 const express = require('express')
 const app = express()
 const path = require('node:path')
+const session = require('express-session')
 const indexRoute = require('./routes/index')
+require('dotenv').config()
 
 const assetsPath = path.join(__dirname, 'public')
 app.use(express.static(assetsPath))
+app.use(session({
+  secret: process.env.KEY,
+  resave: false,
+  saveUninitialized: true
+}));
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')

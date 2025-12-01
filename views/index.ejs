@@ -4,33 +4,59 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div class="heading">
-            Cloud message board ☁︎
-        </div>
-        <section class="messageBoard">
-            <% messages.forEach((message, index) => { %>
-                <div class="message"">
-                    <div class="profile"><%= message.username[0] %></div>
-                    <div>
-                        <span class="user"><%= message.username %></span>
-                        <div class="body">
-                            <%= message.text %>
-                        </div>
-                        <div class="details">
-                            <%= new Intl.DateTimeFormat('en-US', { timeStyle: 'short' }).format(message.added) %> 
-                            <div class="tooltip">ⓘ
-                                <span class="tooltiptext"><%= message.added %></span>
+        <dialog id="dialog">
+            <form action="/user" method="POST">
+                <label for="username">What's your name?</label>
+                <input type="text" name="username" value="<%= username ? username : '' %>">
+                <button id="submitDialog">Submit</button>
+                <button id="closeDialog" type="button">Cancel</button>
+            </form>
+        </dialog>
+        <div class="board">
+            <div class="messageBoardHeader">
+                <h1>Cloud message board ☁︎</h1>
+                <button id="showDialog"><%= username ? username : 'Anonymous' %></button>
+            </div>
+            <section class="messageBoard">
+                <% messages.forEach((message, index) => { %>
+                    <div class="message"">
+                        <div class="profile"><%= message.username[0] %></div>
+                        <div>
+                            <span class="user"><%= message.username %></span>
+                            <div class="body">
+                                <%= message.text %>
                             </div>
-                            <!-- <a href="/message/<%= index %>">ⓘ</a> -->
+                            <div class="details">
+                                <%= new Intl.DateTimeFormat('en-US', { timeStyle: 'short' }).format(message.added) %> 
+                                <div class="tooltip">ⓘ
+                                    <span class="tooltiptext"><%= message.added %></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            <% }) %>
-        </section>
-        <form action="/" method="POST">
-            <input type="text" name="username">
-            <input type="text" placeholder="Type here" name="text">
-            <button>➤</button>
-        </form>
+                <% }) %>
+            </section>
+            <form action="/" method="POST" class="messageBoardFooter">
+                <input type="hidden" type="text" name="username" value="Test">
+                <input type="text" placeholder="Type here" name="text">
+                <button>➤</button>
+            </form>
+        </div>
+
+        <script>
+            const $ = (id) => document.getElementById(id)
+
+            $('showDialog').addEventListener('click', () => {
+                $('dialog').showModal()
+            })
+
+            $('submitDialog').addEventListener('click', () => {
+                $('dialog').close()
+            })
+
+            $('closeDialog').addEventListener('click', () => {
+                $('dialog').close()
+            })
+        </script>
     </body>
 </html>

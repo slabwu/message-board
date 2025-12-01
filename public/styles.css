@@ -1,6 +1,16 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: white;
+    background-color: rgb(217, 239, 250);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.board {
+    width: 360px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .messageBoard {
@@ -9,12 +19,10 @@ body {
     flex-direction: column;
     gap: 10px;
     background-color: LightSkyBlue;
-    height: 700px;
-    width: 500px;
     padding: 20px 10px 20px;
     box-sizing: border-box;
     overflow-y: scroll;
-    border-radius: 20px;
+    height: 100%;
 }
 
 .message {
@@ -26,24 +34,24 @@ body {
 .message .profile {
     background-color: rgb(90, 49, 255);
     color: white;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50px;
+    border-radius: 40px;
     font-size: 20px;
     margin: 0 10px 23px 0;
 }
 
 .message .user {
     color: black;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .message .body {
-    font-size: 20px;
-    padding: 16px;
+    font-size: 16px;
+    padding: 12px;
     border-radius: 20px 20px 20px 2px;
     background-color: white;
     width: fit-content;
@@ -51,7 +59,7 @@ body {
 }
 
 .message .details {
-    font-size: 14px;
+    font-size: 12px;
     margin-top: 2px;
     color: RoyalBlue;
 }
@@ -59,6 +67,53 @@ body {
 .message .details a {
     font-weight: bold;
     color: RoyalBlue;
+}
+
+.messageBoardHeader {
+    background-color: white;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    padding: 0 14px 0;
+    align-items: center;
+    gap: 10px;
+}
+
+.messageBoardHeader h1 {
+    font-size: 20px;
+    font-weight: 400;
+    flex: 1;
+}
+
+.messageBoardFooter {
+    background-color: white;
+    border-radius: 0 0 20px 20px;
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+}
+
+.messageBoardFooter input {
+    height: 40px;
+    flex: 1;
+    border-radius: 20px;
+    padding-left: 20px;
+    border: none;
+    background-color: rgb(235, 249, 255);
+    font-size: 16px;
+}
+
+.messageBoardFooter button {
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    padding: 4px;
+    border: none;
+    color: white;
+    background-color: blueviolet;
+}
+
+.messageBoardFooter button:hover {
+    cursor: pointer;
 }
 
 a {
