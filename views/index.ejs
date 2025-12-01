@@ -7,9 +7,9 @@
         <section class="messageBoard">
             <% messages.forEach((message, index) => { %>
                 <div class="message"">
-                    <div class="profile"><%= message.user[0] %></div>
+                    <div class="profile"><%= message.username[0] %></div>
                     <div>
-                        <span class="user"><%= message.user %></span>
+                        <span class="user"><%= message.username %></span>
                         <div class="body">
                             <%= message.text %>
                         </div>

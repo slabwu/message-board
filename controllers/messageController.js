@@ -5,20 +5,9 @@ const links = [
     { href: '/new', text: 'Send Message' }
 ]
 
-const messages = [
-    {
-        text: 'Hi there!',
-        user: 'Amando',
-        added: new Date()
-    },
-    {
-        text: 'Hello World!',
-        user: 'Charles',
-        added: new Date()
-    }
-]
-
 async function getIndex(req, res) {
+    let messages = await db.getMessages()
+    console.log(messages)
     res.render('index', { links: links, messages: messages })
 }
 
@@ -28,7 +17,7 @@ async function getNew(req, res) {
 
 async function postNew(req, res) {
     let form = req.body
-    messages.push({ text: form.text, user: form.user, added: new Date() })
+    await db.postMessage(form.text, form.username, new Date())
     res.redirect('/')
 }
 
