@@ -16,7 +16,7 @@ body {
 .messageBoard {
     display: flex;
     align-items: flex-start;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 10px;
     background-color: LightSkyBlue;
     padding: 20px 10px 20px;
@@ -79,9 +79,36 @@ body {
 }
 
 .messageBoardHeader h1 {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     flex: 1;
+}
+
+.messageBoardHeader button {
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    height: 40px;
+    padding: 10px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin: 10px 0 10px;
+}
+
+.messageBoardHeader button {
+    cursor: pointer;
+}
+
+.messageBoardHeader .icon {
+    background-color: blueviolet;
+    color: white;
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .messageBoardFooter {
@@ -92,7 +119,7 @@ body {
     gap: 10px;
 }
 
-.messageBoardFooter input {
+.messageBoardFooter input, dialog input {
     height: 40px;
     flex: 1;
     border-radius: 20px;
@@ -142,4 +169,64 @@ a {
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+dialog form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+dialog {
+    width: 280px;
+    height: 200px;
+    border-radius: 20px;
+    border: none;
+    overflow-y: hidden;
+}
+
+dialog label {
+    margin-top: 30px;
+    font-size: 16px;
+}
+
+dialog input {
+    padding: 10px 10px 10px 20px;
+    width: 100%;
+}
+
+#submitDialog {
+    height: 40px;
+    width: 100%;
+    border: none;
+    color: white;
+    background-color: blueviolet;
+    border-radius: 50px;
+    font-size: 16px;
+}
+
+#submitDialog:hover {
+    cursor: pointer;
+}
+
+#closeDialog:hover {
+    cursor: pointer;
+    background-color: aliceblue;
+}
+
+#closeDialog {
+    position: absolute;
+    right: -8px;
+    top: -8px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    height: 30px;
+    width: 30px;
+    background-color: white;
 }

@@ -7,7 +7,7 @@ const links = [
 
 async function getIndex(req, res) {
     let messages = await db.getMessages()
-    console.log(messages)
+    // req.session.destroy()
     res.render('index', { links: links, messages: messages, username: req.session.username || '' })
 }
 

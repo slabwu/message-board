@@ -6,19 +6,22 @@
     <body>
         <dialog id="dialog">
             <form action="/user" method="POST">
-                <label for="username">What's your name?</label>
-                <input type="text" name="username" value="<%= username ? username : '' %>">
-                <button id="submitDialog">Submit</button>
-                <button id="closeDialog" type="button">Cancel</button>
+                <label for="username"><%= !username ? 'Welcome to the message board! ' : '' %>Join the chat as</label>
+                <input type="text" name="username" value="<%= username ? username : '' %>" placeholder="Username">
+                <button id="submitDialog">Chat with others</button>
+                <button id="closeDialog" type="button">✕</button>
             </form>
         </dialog>
         <div class="board">
             <div class="messageBoardHeader">
-                <h1>Cloud message board ☁︎</h1>
-                <button id="showDialog"><%= username ? username : 'Anonymous' %></button>
+                <h1>Chat</h1>
+                <button id="showDialog">
+                    <div class="username"><%= username ? username : 'Anonymous' %></div>
+                    <div class="icon"><%= username ? username[0] : 'A' %></div>
+                </button>
             </div>
             <section class="messageBoard">
-                <% messages.forEach((message, index) => { %>
+                <% messages.slice().reverse().forEach((message, index) => { %>
                     <div class="message"">
                         <div class="profile"><%= message.username[0] %></div>
                         <div>
@@ -45,6 +48,8 @@
 
         <script>
             const $ = (id) => document.getElementById(id)
+
+            if (!'<%= username %>') $('dialog').showModal()
 
             $('showDialog').addEventListener('click', () => {
                 $('dialog').showModal()
