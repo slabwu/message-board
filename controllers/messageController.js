@@ -17,7 +17,7 @@ async function getNew(req, res) {
 
 async function postNew(req, res) {
     let form = req.body
-    await db.postMessage(form.text, form.username, new Date())
+    await db.postMessage(form.text, form.username)
     res.redirect('/')
 }
 

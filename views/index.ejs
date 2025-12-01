@@ -1,9 +1,12 @@
 <html>
     <head>
         <link rel="stylesheet" href="/styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <%- include('header', {links: links}) %>
+        <div class="heading">
+            Cloud message board ☁︎
+        </div>
         <section class="messageBoard">
             <% messages.forEach((message, index) => { %>
                 <div class="message"">
@@ -15,11 +18,19 @@
                         </div>
                         <div class="details">
                             <%= new Intl.DateTimeFormat('en-US', { timeStyle: 'short' }).format(message.added) %> 
-                            <a href="/message/<%= index %>">ⓘ</a>
+                            <div class="tooltip">ⓘ
+                                <span class="tooltiptext"><%= message.added %></span>
+                            </div>
+                            <!-- <a href="/message/<%= index %>">ⓘ</a> -->
                         </div>
                     </div>
                 </div>
             <% }) %>
         </section>
+        <form action="/" method="POST">
+            <input type="text" name="username">
+            <input type="text" placeholder="Type here" name="text">
+            <button>➤</button>
+        </form>
     </body>
 </html>
