@@ -4,12 +4,8 @@ const app = express()
 const path = require('node:path')
 const session = require('express-session')
 const pgSession = require('connect-pg-simple')(session)
-const pg = require('pg')
+const pool = require('./db/pool')
 const indexRoute = require('./routes/index')
-
-const pool = new pg.Pool({
-  connectionString: process.env.DATABASE_URL
-})
 
 const assetsPath = path.join(__dirname, 'public')
 app.use(express.static(assetsPath))
@@ -17,6 +13,7 @@ app.use(session({
   store: new pgSession({
     pool: pool,
     tableName: 'session',
+    createTableIfMissing: true
   }),
   secret: process.env.KEY || 'fallback123!',
   resave: false,
