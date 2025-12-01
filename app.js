@@ -14,15 +14,6 @@ const pool = new pg.Pool({
 const assetsPath = path.join(__dirname, 'public')
 app.use(express.static(assetsPath))
 app.use(session({
-  secret: process.env.KEY,
-  resave: false,
-  saveUninitialized: true
-}))
-
-app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'ejs')
-app.use(express.urlencoded({ extended: true }))
-app.use(session({
   store: new pgSession({
     pool: pool,
     tableName: 'session',
@@ -35,6 +26,9 @@ app.use(session({
   }
 }))
 
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'ejs')
+app.use(express.urlencoded({ extended: true }))
 app.use('/', indexRoute)
 
 const PORT = 8080
