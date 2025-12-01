@@ -17,13 +17,13 @@
                 <h1>Chat</h1>
                 <button id="showDialog">
                     <div class="username"><%= username ? username : 'Anonymous' %></div>
-                    <div class="icon"><%= username ? username[0] : 'A' %></div>
+                    <div class="icon" style="background-color: <%= usernameColor %>;"><%= username ? username[0] : 'A' %></div>
                 </button>
             </div>
             <section class="messageBoard">
                 <% messages.slice().reverse().forEach((message, index) => { %>
                     <div class="message"">
-                        <div class="profile"><%= message.username[0] %></div>
+                        <div class="profile" style="background-color: <%= message.color %>;"><%= message.username[0] %></div>
                         <div>
                             <span class="user"><%= message.username %></span>
                             <div class="body">

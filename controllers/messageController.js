@@ -5,10 +5,40 @@ const links = [
     { href: '/new', text: 'Send Message' }
 ]
 
+function getColor(name) {
+    function hash(string) {
+        let hash = 0
+        for (let i = 0; i < string.length; i++) {
+            hash += string.charCodeAt(i)
+        }
+        return hash
+    }
+
+    let colors = ['blueviolet', 'brown', 'blue', 'crimson', 'darkgoldenred', 'darkgreen', 'darkmagenta', 'darkorange', 'deeppink', 'lightseagreen', 'navy', 'orangered', 'orange', 'red', 'teal', 'yellowgreen', 'seagreen', 'slateblue']
+
+    return colors[hash(name) % colors.length]
+}
+
 async function getIndex(req, res) {
-    let messages = await db.getMessages()
+    let messagesArray = await db.getMessages()
     // req.session.destroy()
-    res.render('index', { links: links, messages: messages, username: req.session.username || '' })
+
+    function hash(string) {
+        let hash = 0
+        for (let i = 0; i < string.length; i++) {
+            hash += string.charCodeAt(i)
+        }
+        return hash
+    }
+
+    let messages = messagesArray.map(message => ({
+        ...message,
+        color: getColor(message.username)
+    }))
+
+    console.log(messages)
+
+    res.render('index', { links: links, messages: messages, username: req.session.username || '', usernameColor: getColor(req.session.username || 'A') })
 }
 
 async function getNew(req, res) {
