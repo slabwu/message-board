@@ -3,7 +3,8 @@ require('dotenv').config()
 const { Client } = require('pg')
 const { argv } = require('node:process')
 
-const url = argv[2] || `postgresql://${process.env.USER}:@${process.env.HOST}:${process.env.PORT}/${process.env.DATABASE}`
+const url = argv[2] || process.env.DATABASE_URL
+const archive = `postgresql://${process.env.USER}:${process.env.PASSWORD}@${process.env.HOST}:${process.env.PORT}/${process.env.DATABASE}`
 
 const SQL = `
 CREATE TABLE IF NOT EXISTS messages (
