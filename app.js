@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const path = require('node:path')
@@ -5,7 +6,6 @@ const session = require('express-session')
 const pgSession = require('connect-pg-simple')(session)
 const pg = require('pg')
 const indexRoute = require('./routes/index')
-require('dotenv').config()
 
 const pool = new pg.Pool({
   connectionString: process.env.DATABASE_URL
@@ -18,7 +18,7 @@ app.use(session({
     pool: pool,
     tableName: 'session',
   }),
-  secret: process.env.KEY,
+  secret: process.env.KEY || 'fallback123!',
   resave: false,
   saveUninitialized: false,
   cookie: { 
