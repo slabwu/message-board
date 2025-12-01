@@ -4,8 +4,8 @@ const index = Router()
 
 index.get('/', messageController.getIndex)
 index.post('/', messageController.postNew)
-index.get('/new', messageController.getNew)
-index.post('/new', messageController.postNew)
-index.get('/message/:messageId', messageController.getMessageId)
+// index.get('/new', messageController.getNew)
+// index.post('/new', messageController.postNew)
+// index.get('/message/:messageId', messageController.getMessageId)
 
 module.exports = index
