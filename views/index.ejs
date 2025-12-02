@@ -8,13 +8,13 @@
             <form action="/user" method="POST">
                 <label for="username"><%= !username ? 'Welcome to the message board! ' : '' %>Join the chat as</label>
                 <input type="text" name="username" value="<%= username ? username : '' %>" placeholder="Username">
-                <button id="submitDialog">Chat with others</button>
+                <button id="submitDialog"><%= !username ? 'Start chatting' : 'Change username' %></button>
                 <button id="closeDialog" type="button">✕</button>
             </form>
         </dialog>
         <div class="board">
             <div class="messageBoardHeader">
-                <h1>Chat</h1>
+                <h1>🗪</h1>
                 <button id="showDialog">
                     <div class="username"><%= username ? username : 'Anonymous' %></div>
                     <div class="icon" style="background-color: <%= usernameColor %>;"><%= username ? username[0] : 'A' %></div>
@@ -30,7 +30,7 @@
                                 <%= message.text %>
                             </div>
                             <div class="details">
-                                <%= new Intl.DateTimeFormat('en-US', { timeStyle: 'short' }).format(message.added) %> 
+                                <%= new Intl.DateTimeFormat('en-US', { timeStyle: 'short', dateStyle: 'short' }).format(message.added) %> 
                                 <div class="tooltip">ⓘ
                                     <span class="tooltiptext"><%= message.added %></span>
                                 </div>
