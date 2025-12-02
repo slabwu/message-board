@@ -7,7 +7,7 @@
         <dialog id="dialog">
             <form action="/user" method="POST">
                 <label for="username"><%= !username ? 'Welcome to the message board! ' : '' %>Join the chat as</label>
-                <input type="text" name="username" value="<%= username ? username : '' %>" placeholder="Username">
+                <input type="text" name="username" value="<%= username ? username : '' %>" placeholder="Username" autocomplete="off">
                 <button id="submitDialog"><%= !username ? 'Start chatting' : 'Change username' %></button>
                 <button id="closeDialog" type="button">✕</button>
             </form>
@@ -40,8 +40,7 @@
                 <% }) %>
             </section>
             <form action="/" method="POST" class="messageBoardFooter">
-                <input type="hidden" type="text" name="username" value="Test">
-                <input type="text" placeholder="Type here" name="text">
+                <input type="text" placeholder="Type here" name="text" autocomplete="off">
                 <button>➤</button>
             </form>
         </div>
