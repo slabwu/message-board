@@ -46,6 +46,11 @@ async function getNew(req, res) {
 }
 
 async function postNew(req, res) {
+    if (!req.body.text) {
+        res.redirect('/')
+        return
+    }
+
     await db.postMessage(req.body.text, req.session.username || 'Anonymous')
     res.redirect('/')
 }

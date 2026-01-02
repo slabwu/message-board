@@ -2,6 +2,8 @@
     <head>
         <link rel="stylesheet" href="/styles.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💬</text></svg>">
+        <title>Message Board</title>
     </head>
     <body>
         <dialog id="dialog">
@@ -14,7 +16,7 @@
         </dialog>
         <div class="board">
             <div class="messageBoardHeader">
-                <h1>🗪</h1>
+                <h1>💬</h1>
                 <button id="showDialog">
                     <div class="username"><%= username ? username : 'Anonymous' %></div>
                     <div class="icon" style="background-color: <%= usernameColor %>;"><%= username ? username[0] : 'A' %></div>
@@ -62,5 +64,16 @@
                 $('dialog').close()
             })
         </script>
+
+        <style>
+            .material-symbols-outlined {
+                font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 30;
+                font-size: 30px;
+            }
+        </style>
     </body>
 </html>
